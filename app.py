@@ -15,7 +15,6 @@ class Post(db.Model):
 
 with app.app_context():
   db.create_all()
-  db.create_all()
 
 @app.get('/')
 def home():
