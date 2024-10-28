@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='myfirst.css') }}">
+  <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+  <nav>
+    <h1>Posts</h1>
+    <ul>
+      <li><a href="/">HOME</a>
+      <li><a href="{{ url_for('posts') }}">Posts</a>
+      <li><a href="{{ url_for('create') }}">Add Post</a>
+    </ul>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+      <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </section>
+</body>
+
+</html>

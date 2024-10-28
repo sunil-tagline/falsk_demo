@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block title %}
+  All Posts
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ post['title'] }}</h1>
+        </div>
+      </header>
+      <p class="body">{{ post['description'] }}</p>
+      <a href="{{ url_for('update', id=post['id']) }}" class="btn">Edit</a>
+      <form action="{{ url_for('delete', id=post['id']) }}" method="post" style="display:inline;">
+        <button type="submit" class="btn btn btn-secondary">Delete</button>
+      </form>
+    </article>
+    {% if not loop.last %}
+    <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+
+{% block title %}
+  My Blog Posts
+{% endblock %}
+
+{% block content %}
+  <h1>My Posts</h1>
+
+  <h3>Posts</h3>
+
+  <p>Check out all our <a href="{{ url_for('posts') }}">Posts</a></p>
+
+{% endblock %}
